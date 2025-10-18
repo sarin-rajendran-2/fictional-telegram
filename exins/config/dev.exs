@@ -3,9 +3,9 @@ config :ash, policies: [show_policy_breakdowns?: true]
 
 # Configure your database
 config :exins, Exins.Repo,
-  username: "jules",
-  password: "password",
-  hostname: "localhost",
+  username: System.get_env("DB_USER", "postgres"),
+  password: System.get_env("DB_PASSWORD", "postgres"),
+  hostname: System.get_env("DB_HOST", "localhost"),
   database: "exins_dev",
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
